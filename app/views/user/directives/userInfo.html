@@ -1,0 +1,7 @@
+<div id="user-info">
+    <div ng-repeat="user in users" class="user-info">
+        <img class="img-thumbnail img-circle" style="width: 70px; height: 70px;" ng-src="{{user.avatar_url}}" />
+        <h3>User name: {{user.login}}</h3>
+        <button class="btn btn-primary" ng-click="getProjects(user)">See Projects</button>
+    </div>
+</div>

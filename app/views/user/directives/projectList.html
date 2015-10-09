@@ -1,0 +1,12 @@
+<article id="project-info" class="project-info">
+    <div class="list-group">
+        <div class="list-group-item" ng-repeat="project in projects">
+            <h4 class="list-group-item-heading">{{project.name}}</h4>
+            <a href="{{project.html_url}}">{{project.html_url}}</a>
+            <p class="list-group-item-text">{{project.url}}</p>
+            <p class="list-group-item-text">{{project.description}}</p>
+            <p class="list-group-item-text"><b>Created: </b> {{project.created_at|date:short}}</p>
+            <p class="list-group-item-text"><b>Last update: </b> {{project.updated_at|date:short}}</p>
+        </div>
+    </div>
+</article>

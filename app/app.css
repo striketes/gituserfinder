@@ -1,0 +1,105 @@
+/* app css stylesheet */
+*{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body{
+  margin: 0;
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin: 0 0 2em 0;
+  padding: 1.5em;
+  background: #034ACB;
+}
+
+.main-content{
+  margin-top: 51px;
+}
+
+.user-loader, .project-loader{
+  display: none;
+}
+
+.user-info, .project-info{
+  display: none;
+}
+
+.btn{
+  border: 1px #ADADAD solid;
+  background-color: #FFFFFF;
+  background-image: none;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: hand;
+}
+
+
+.btn.btn-primary{
+  background-color: #2e6da4;
+  color: whitesmoke;
+}
+
+.container {
+  margin: 0 auto !important;
+  display: block;
+  float: none;
+  padding: 10px;
+  width: 1170px;
+}
+
+.navbar{
+  width: 100%;
+  background-color: #555555;
+  color: whitesmoke;
+}
+
+.navbar a{
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.navbar li{
+  list-style: none;
+  display: inline-block;
+}
+
+a.navbar-brand{
+  font-weight: bold;
+  color: #31b0d5;
+  float: left;
+  padding: 15px;
+}
+
+.img-thumbnail{
+  border: 1px #afd9ee solid;
+  border-radius: 4px;
+}
+
+.img-thumbnail.img-circle{
+  border-radius: 45px;
+}
+
+.list-group{
+  border-radius: 7px;
+  border: 1px #959595 solid;
+}
+
+.list-group > .list-group-item{
+  border-bottom: 1px #959595 solid;
+  padding: 10px
+}
+
+.list-group > .list-group-item:hover{
+  background: #a6e1ec;
+}
+
+.list-group > .list-group-item:last-child{
+  border: none;
+}
+
+.list-group-item-heading{
+  color: #204d74;
+}
