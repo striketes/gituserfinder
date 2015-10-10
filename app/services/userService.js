@@ -11,12 +11,10 @@
                 loader.className = "";
                 userInfo.className = "user-info";
 
-                return $http.get('https://api.github.com/users?q=' + username, {cache:true})
+                return $http.get('https://api.github.com/search/users?q=' + username, {cache:true})
                     .then(function (response) {
                         loader.className = "user-loader";
                         userInfo.className = "";
-                        var users = response.data;
-
                         return users;
                     }).catch(function (response) {
                         alert("User not found");

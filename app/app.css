@@ -1,5 +1,8 @@
 /* app css stylesheet sgomez */
 /*something else to try git ide integration*/
+
+
+
 *{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -67,6 +70,12 @@ body{
   display: inline-block;
 }
 
+ul.nav.navbar-nav li {
+  font-size: 14px;
+  padding: 0 10px;
+  font-weight: lighter;
+} 
+
 a.navbar-brand{
   font-weight: bold;
   color: #31b0d5;
@@ -103,4 +112,25 @@ a.navbar-brand{
 
 .list-group-item-heading{
   color: #204d74;
+}
+
+@media (max-width: 1169px) {
+  .container {
+    margin: 0 auto !important;
+    display: block;
+    float: none;
+    padding: 0px;
+    width: 100%;
+  }
+
+  .navbar{
+      background: #204d74;
+      padding: 10px;
+  }
+
+  a.navbar-brand{
+      float: left;
+      padding: 15px;
+      margin-top: -16px;
+  }
 }

@@ -6,7 +6,7 @@
         .directive('userInfo', function(){
             return {
                 restrict: 'E',
-                templateUrl: '/AngularJs/Exercices/note_creator/app/views/user/directives/userInfo.html',
+                templateUrl: '/AngularJs/Exercices/note_creator/app/views/user/directives/userInfo.html'
             };
         })
         .directive('projectList', function(){
