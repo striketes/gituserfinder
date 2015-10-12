@@ -1,163 +1,159 @@
 /* app css stylesheet sgomez */
 /*something else to try git ide integration*/
 
-
-
-*{
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-body{
-  margin: 0;
+body {
+    margin: 0;
 }
 
 .menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin: 0 0 2em 0;
-  padding: 1.5em;
-  background: #034ACB;
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin: 0 0 2em 0;
+    padding: 1.5em;
+    background: #034ACB;
 }
 
-.main-content{
-  margin-top: 51px;
+.main-content {
+    margin-top: 51px;
 }
 
-.user-loader, .project-loader{
-  display: none;
+.user-loader, .project-loader {
+    display: none;
 }
 
-.user-info, .project-info{
-  display: none;
+.user-info, .project-info {
+    display: none;
 }
 
-.btn{
-  border: 1px #ADADAD solid;
-  background-color: #FFFFFF;
-  background-image: none;
-  padding: 6px;
-  border-radius: 4px;
-  cursor: hand;
+.btn {
+    border: 1px #ADADAD solid;
+    background-color: #FFFFFF;
+    background-image: none;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: hand;
 }
 
-
-.btn.btn-primary{
-  background-color: #2e6da4;
-  color: whitesmoke;
+.btn.btn-primary {
+    background-color: #2e6da4;
+    color: whitesmoke;
 }
 
 .container {
-  margin: 0 auto !important;
-  display: block;
-  float: none;
-  padding: 10px;
-  width: 1170px;
+    margin: 0 auto !important;
+    display: block;
+    float: none;
+    padding: 10px;
+    width: 1170px;
 }
 
-.navbar{
-  width: 100%;
-  background-color: #555555;
-  color: whitesmoke;
+.navbar {
+    width: 100%;
+    background-color: #555555;
+    color: whitesmoke;
 }
 
-.navbar a{
-  text-decoration: none;
-  color: whitesmoke;
+.navbar a {
+    text-decoration: none;
+    color: whitesmoke;
 }
 
-.navbar li{
-  list-style: none;
-  display: inline-block;
+.navbar li {
+    list-style: none;
+    display: inline-block;
 }
 
 ul.nav.navbar-nav li {
-  font-size: 14px;
-  padding: 0 10px;
-  font-weight: lighter;
-} 
-
-a.navbar-brand{
-  font-weight: bold;
-  color: #31b0d5;
-  float: left;
-  padding: 15px;
+    font-size: 14px;
+    padding: 0 10px;
+    font-weight: lighter;
 }
 
-.img-thumbnail{
-  border: 1px #afd9ee solid;
-  border-radius: 4px;
+a.navbar-brand {
+    font-weight: bold;
+    color: #31b0d5;
+    float: left;
+    padding: 15px;
 }
 
-.img-thumbnail.img-circle{
-  border-radius: 45px;
+.img-thumbnail {
+    border: 1px #afd9ee solid;
+    border-radius: 4px;
 }
 
-.list-group{
-  border-radius: 7px;
-  border: 1px #959595 solid;
+.img-thumbnail.img-circle {
+    border-radius: 45px;
 }
 
-.list-group > .list-group-item{
-  border-bottom: 1px #959595 solid;
-  padding: 10px
+.list-group {
+    border-radius: 7px;
+    border: 1px #959595 solid;
 }
 
-.list-group > .list-group-item:hover{
-  background: #a6e1ec;
+.list-group > .list-group-item {
+    border-bottom: 1px #959595 solid;
+    padding: 10px
 }
 
-.list-group > .list-group-item:last-child{
-  border: none;
+.list-group > .list-group-item:hover {
+    background: #a6e1ec;
 }
 
-.list-group-item-heading{
-  color: #204d74;
+.list-group > .list-group-item:last-child {
+    border: none;
 }
 
-.panel{
-  display: block;
-  border: 1px gray solid;
-  margin: 10px;
-  height: auto;
+.list-group-item-heading {
+    color: #204d74;
 }
 
-.form-horizontal{
-  padding: 10px;
-  margin: 10px;
+.panel {
+    display: block;
+    border: 1px gray solid;
+    margin: 10px;
+    height: auto;
+}
+
+.form-horizontal {
+    padding: 10px;
+    margin: 10px;
 }
 
 .form-horizontal > button {
-  display: block;
-  margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .form-horizontal .form-group {
-  display: block;
-  margin: 10px;
+    display: block;
+    margin: 10px;
 }
 
 .form-controll {
 
 }
 
-
 @media (max-width: 1169px) {
-  .container {
-    margin: 0 auto !important;
-    display: block;
-    float: none;
-    padding: 0px;
-    width: 100%;
-  }
+    .container {
+        margin: 0 auto !important;
+        display: block;
+        float: none;
+        padding: 0px;
+        width: 100%;
+    }
 
-  .navbar{
-      background: #204d74;
-      padding: 10px;
-  }
+    .navbar {
+        background: #204d74;
+        padding: 10px;
+    }
 
-  a.navbar-brand{
-      float: left;
-      padding: 15px;
-      margin-top: -16px;
-  }
+    a.navbar-brand {
+        float: left;
+        padding: 15px;
+        margin-top: -16px;
+    }
 }
