@@ -6,7 +6,7 @@
 
             $scope.getAll = function(){
 
-                $scope.posts.recipes = JSON.parse(localStorageService.get('posts'));
+                $scope.posts.recipes = JSON.parse(localStorageService.get('recipes'));
 
                 if(!$scope.posts.recipes) {
 
@@ -21,7 +21,7 @@
 
             $scope.addNew = function() {
 
-                $scope.posts.recipes = JSON.parse(localStorageService.get('posts'));
+                $scope.posts.recipes = JSON.parse(localStorageService.get('recipes'));
 
                 if(!$scope.posts.recipes){
                     $scope.posts.recipes = [];
@@ -29,8 +29,8 @@
 
                 recipeService.save($scope.recipe)
                     .then(function(response){
-                        $scope.recipe = response;
-                        $scope.posts.recipes.push($scope.recipe);
+                        $scope.posts.recipes = JSON.parse(localStorageService.get('recipes'));
+                        $scope.recipe = {};
                     }).catch(function(response){
                         alert('The recipe could not be saved');
                     });
