@@ -1,12 +1,46 @@
 (function(){
     angular.module('myApp')
-        .controller('recipeController', ['recipeService', '$scope', function(recipeService, $scope){
-
-            $scope.recipes = [];
+        .controller('recipeController', ['recipeService', '$scope', 'localStorageService', function(recipeService, $scope, localStorageService){
+            $scope.posts = recipeService.getPosts();
+            $scope.recipe = {};
 
             $scope.getAll = function(){
-                recipeService.getAll();
+
+                $scope.posts.recipes = JSON.parse(localStorageService.get('posts'));
+
+                if(!$scope.posts.recipes) {
+
+                    recipeService.getAll().then(function (response) {
+                        $scope.posts.recipes = response;
+                    }).catch(function (response) {
+                        alert('Not found');
+                        console.log(response.error);
+                    });
+                }
+            };
+
+            $scope.addNew = function() {
+
+                $scope.posts.recipes = JSON.parse(localStorageService.get('posts'));
+
+                if(!$scope.posts.recipes){
+                    $scope.posts.recipes = [];
+                }
+
+                recipeService.save($scope.recipe)
+                    .then(function(response){
+                        $scope.recipe = response;
+                        $scope.posts.recipes.push($scope.recipe);
+                    }).catch(function(response){
+                        alert('The recipe could not be saved');
+                    });
+
             }
+
+            $scope.reset = function() {
+                $scope.posts.recipes = [];
+                recipeService.reset();
+            };
 
         }]);
 })();

@@ -1,0 +1,15 @@
+<button class="btn btn-primary" ng-click="getAll()">Recipes</button>
+<button class="btn btn-primary" ng-click="reset()">Reset</button>
+<a class="btn btn-primary" ui-sref="recipe.add">Add</a>
+<div ui-view></div>
+
+<article>
+    <div id="top-page-recipes"></div>
+    <div class="list-group">
+        <div class="list-group-item" ng-repeat="recipe in posts.recipes">
+            <h4 class="list-group-item-heading">{{recipe.title}}</h4>
+            <p class="list-group-item-text">{{recipe.body}}</p>
+            <p class="list-group-item-text">{{recipe.id}}</p>
+        </div>
+    </div>
+</article>

@@ -1,7 +1,7 @@
 (function() {
 
 // Declare app level module which depends on views, and components
-  angular.module('myApp', ['ui.router']).
+  angular.module('myApp', ['ui.router', 'LocalStorageModule']).
       config(['$stateProvider', function ($stateProvider) {
         $stateProvider
             .state('home', {
@@ -19,7 +19,13 @@
             })
             .state('recipe', {
                 url: '/recipe',
-                template: '<button class="btn btn-primary" ng-click="getAll()">Recipes</button>',
+                abstract: true,
+                templateUrl: '/AngularJs/Exercices/note_creator/app/views/recipe/recipe-list.html',
+                controller: 'recipeController'
+            })
+            .state('recipe.add', {
+                url: '/add',
+                templateUrl: '/AngularJs/Exercices/note_creator/app/views/recipe/form.html',
                 controller: 'recipeController'
             });
       }]);

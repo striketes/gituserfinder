@@ -114,6 +114,32 @@ a.navbar-brand{
   color: #204d74;
 }
 
+.panel{
+  display: block;
+  border: 1px gray solid;
+  margin: 10px;
+  height: auto;
+}
+
+.form-horizontal{
+  padding: 10px;
+  margin: 10px;
+}
+
+.form-horizontal > button {
+  display: block;
+  margin: 0 auto;
+}
+
+.form-horizontal .form-group {
+  display: block;
+  margin: 10px;
+}
+
+.form-controll {
+
+}
+
 
 @media (max-width: 1169px) {
   .container {
