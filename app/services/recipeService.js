@@ -28,29 +28,58 @@
 
             function save(recipe) {
 
-                posts.recipes = JSON.parse(localStorageService.get('recipes'));
+                posts.recipes = getStoredRecipes();
 
                 if (!posts.recipes) {
                     posts.recipes = [];
                 }
-                $http.post('http://jsonplaceholder.typicode.com/posts', recipe)
+                return $http.post('http://jsonplaceholder.typicode.com/posts', recipe)
                     .then(function (response) {
                         posts.recipes.push(response.data);
                         localStorageService.set('recipes', JSON.stringify(posts.recipes));
+                        return response.data;
                     }).catch(function (response) {
                         console.log(response);
                     });
             }
 
-            function reset() {
+            function clearAll() {
                 localStorageService.remove('recipes');
+            }
+
+            function deleteRecipe(recipe) {
+                posts.recipes = getStoredRecipes();
+                posts.recipes = posts.recipes.filter(function(obj){
+                    return obj.title !== recipe.title;
+                });
+                localStorageService.set('recipes', JSON.stringify(posts.recipes));
+            }
+
+            function isRepeated(title) {
+
+                var recipes = getStoredRecipes();
+
+                if(!recipes){
+                    return false;
+                }
+                var recipe = recipes.filter(function(obj){
+                   return obj.title == title;
+                });
+
+                return recipe.length > 0;
+            }
+
+            function getStoredRecipes() {
+                return JSON.parse(localStorageService.get('recipes'));
             }
 
             return {
                 getAll: getAll,
-                reset: reset,
+                clearAll: clearAll,
                 save: save,
-                getPosts: getPosts
+                getPosts: getPosts,
+                deleteRecipe: deleteRecipe,
+                isRepeated: isRepeated
             };
         }]);
 })();

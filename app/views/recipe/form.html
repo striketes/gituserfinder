@@ -1,8 +1,10 @@
 <div class="panel">
-    <form class="form-horizontal">
-        <div class="form-group">
+    <form class="form-horizontal" name="recipeForm" novalidate unique-validator="uniqFields">
+        <div class="form-group" show-errors >
             <label for="recipeName">Title</label>
-            <input class="form-control" type="text" ng-model="recipe.title" id="recipeName"/>
+            <input class="form-control" type="text" name="title" ng-model="recipe.title" ng-minlength="3" required id="recipeName"/>
+            <span class="error-text" ng-if="recipeForm.title.$invalid && recipeForm.title.$dirty">Tile is required</span>
+            <span class="error-text" ng-if="recipeForm.title.$error.minlength && recipeForm.title.$dirty">Tile must be greater than 3 characters</span>
         </div>
 
         <div class="form-group">
@@ -10,6 +12,7 @@
             <textarea class="form-control" id="recipeBody" ng-model="recipe.body"></textarea>
         </div>
 
-        <button ng-click="addNew()" class="btn btn-primary">Save</button>
+        <button type="submit" ng-click="addNew(recipeForm)" class="btn btn-primary">Save</button>
+        <button type="reset" ng-click="reset()" class="btn btn-primary">Reset</button>
     </form>
 </div>

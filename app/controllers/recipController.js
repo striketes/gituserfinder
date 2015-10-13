@@ -3,6 +3,7 @@
         .controller('recipeController', ['recipeService', '$scope', 'localStorageService', function (recipeService, $scope, localStorageService) {
             $scope.posts = recipeService.getPosts();
             $scope.recipe = {};
+            $scope.uniqFields = ['title'];
 
             $scope.getAll = function () {
 
@@ -19,7 +20,14 @@
                 }
             };
 
-            $scope.addNew = function () {
+            $scope.addNew = function (recipeForm) {
+
+                $scope.$broadcast('form-submit');
+                $scope.$broadcast('show-error-event');
+
+                if(!recipeForm.$valid) {
+                    return;
+                }
 
                 $scope.posts.recipes = JSON.parse(localStorageService.get('recipes'));
 
@@ -31,15 +39,24 @@
                     .then(function (response) {
                         $scope.posts.recipes = JSON.parse(localStorageService.get('recipes'));
                         $scope.recipe = {};
+                        $scope.$broadcast('hide-error-event');
                     }).catch(function (response) {
                         alert('The recipe could not be saved');
                     });
-
             }
 
-            $scope.reset = function () {
+            $scope.reset = function() {
+                $scope.$broadcast('hide-error-event');
+            };
+
+            $scope.delete = function(recipe) {
+                recipeService.deleteRecipe(recipe);
+                $scope.posts.recipes = JSON.parse(localStorageService.get('recipes'));
+            }
+
+            $scope.clearAll = function () {
                 $scope.posts.recipes = [];
-                recipeService.reset();
+                recipeService.clearAll();
             };
 
         }]);

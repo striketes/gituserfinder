@@ -4116,7 +4116,7 @@ angular.module('ui.bootstrap.rating', [])
     $scope.onHover({value: value});
   };
 
-  $scope.reset = function() {
+  $scope.clearAll = function() {
     $scope.value = ngModelCtrl.$viewValue;
     $scope.onLeave();
   };
