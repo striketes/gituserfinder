@@ -10,7 +10,7 @@
 
         <div class="form-group" show-errors>
             <label for="recipeBody">Body</label>
-            <textarea class="form-control" required unique-validator id="recipeBody" name="body" ng-model="recipe.body"></textarea>
+            <textarea class="form-control" required id="recipeBody" name="body" ng-model="recipe.body"></textarea>
             <span class="error-text" ng-if="recipeForm.body.$error.repeated && recipeForm.body.$dirty">body is in use</span>
             <span class="error-text" ng-if="recipeForm.body.$error.required && recipeForm.body.$dirty">body is required</span>
         </div>

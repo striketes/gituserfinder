@@ -15,7 +15,6 @@
                     });
 
                     scope.$on('hide-error-event', function () {
-                        alert(1);
                         $state.reload();
                     });
                 }
