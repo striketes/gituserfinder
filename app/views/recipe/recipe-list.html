@@ -5,7 +5,7 @@
 <article>
     <div id="top-page-recipes"></div>
     <div class="list-group">
-        <div class="list-group-item" ng-repeat="recipe in posts.recipes">
+        <div class="list-group-item" ng-repeat="recipe in posts.recipes track by $index">
             <h4 class="list-group-item-heading">{{recipe.title}}</h4>
 
             <p class="list-group-item-text">{{recipe.body}}</p>

@@ -1,6 +1,6 @@
 <article id="project-info" class="project-info">
     <div class="list-group">
-        <div class="list-group-item" ng-repeat="project in projects">
+        <div class="list-group-item" ng-repeat="project in projects track by $index">
             <h4 class="list-group-item-heading">{{project.name}}</h4>
             <a href="{{project.html_url}}">{{project.html_url}}</a>
             <p class="list-group-item-text">{{project.url}}</p>
