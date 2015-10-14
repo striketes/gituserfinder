@@ -1,15 +1,16 @@
 <div class="panel">
-    <form class="form-horizontal" name="recipeForm" novalidate unique-validator="uniqFields">
+    <form class="form-horizontal" name="recipeForm" novalidate unique-validator unique="unique">
         <div class="form-group" show-errors >
             <label for="recipeName">Title</label>
             <input class="form-control" type="text" name="title" ng-model="recipe.title" ng-minlength="3" required id="recipeName"/>
-            <span class="error-text" ng-if="recipeForm.title.$invalid && recipeForm.title.$dirty">Tile is required</span>
-            <span class="error-text" ng-if="recipeForm.title.$error.minlength && recipeForm.title.$dirty">Tile must be greater than 3 characters</span>
+            <span class="error-text" ng-if="recipeForm.title.$error.required && recipeForm.title.$dirty">Title is required</span>
+            <span class="error-text" ng-if="recipeForm.title.$error.minlength && recipeForm.title.$dirty">Title must be greater than 3 characters</span>
+            <span class="error-text" ng-if="recipeForm.title.$error.repeated && recipeForm.title.$dirty">Title is in use</span>
         </div>
 
         <div class="form-group">
             <label for="recipeBody">Body</label>
-            <textarea class="form-control" id="recipeBody" ng-model="recipe.body"></textarea>
+            <textarea class="form-control" id="recipeBody" name="body" ng-model="recipe.body"></textarea>
         </div>
 
         <button type="submit" ng-click="addNew(recipeForm)" class="btn btn-primary">Save</button>

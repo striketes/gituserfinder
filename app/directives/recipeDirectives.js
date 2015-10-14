@@ -26,18 +26,18 @@
                 restrict: 'A',
                 require: '^form',
                 scope: {
-                    'unique-validator': "="
+                    unique: '='
                 },
-                link: function (scope, element, attrs) {
-                    console.log(scope.uniqFields);
-                    var field = element.querySelector('[name='+scope.uniqFields[0]+']');
+                link: function (scope, element, attrs, formCtrl) {
+                    var inputName = scope.unique[0].name;
+                    var field = element[0].querySelector('[name='+inputName+']');
+                    var ngField = angular.element(field);
                     scope.$on('form-submit', function(){
-                        if(recipeService.isRepeated(field.val())){
-                            element[inputName].$invalid;
-                            element[inputName].$setDirty(true);
-                        }
+                        //if(recipeService.isRepeated(field.value)){
+                            formCtrl[inputName].$setValidity('repeated', !recipeService.isRepeated(field.value));
+                            formCtrl[inputName].$setDirty(true);
+                        //}
                     });
-                    //if(recipeService.isRepeated())
                 }
             }
         }]);

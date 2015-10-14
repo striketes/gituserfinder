@@ -3,7 +3,11 @@
         .controller('recipeController', ['recipeService', '$scope', 'localStorageService', function (recipeService, $scope, localStorageService) {
             $scope.posts = recipeService.getPosts();
             $scope.recipe = {};
-            $scope.uniqFields = ['title'];
+            $scope.unique = [
+                {
+                    name: 'title'
+                }
+            ];
 
             $scope.getAll = function () {
 
