@@ -3,11 +3,6 @@
         .controller('recipeController', ['recipeService', '$scope', 'localStorageService', function (recipeService, $scope, localStorageService) {
             $scope.posts = recipeService.getPosts();
             $scope.recipe = {};
-            $scope.unique = [
-                {
-                    name: 'title'
-                }
-            ];
 
             $scope.getAll = function () {
 
@@ -25,8 +20,6 @@
             };
 
             $scope.addNew = function (recipeForm) {
-
-                $scope.$broadcast('form-submit');
                 $scope.$broadcast('show-error-event');
 
                 if(!recipeForm.$valid) {

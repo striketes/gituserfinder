@@ -7,9 +7,7 @@
                 link: function (scope, element, attrs, formCtrl) {
                     var inputEl = element[0].querySelector('[name]');
                     var inputNgEl = angular.element(inputEl);
-
                     var inputName = inputNgEl.attr('name');
-                    var helpText = angular.element(element[0].querySelector('.error-text'));
 
                     scope.$on('show-error-event', function () {
                         formCtrl[inputName].$invalid;
@@ -17,6 +15,7 @@
                     });
 
                     scope.$on('hide-error-event', function () {
+                        alert(1);
                         $state.reload();
                     });
                 }
@@ -25,18 +24,14 @@
             return {
                 restrict: 'A',
                 require: '^form',
-                scope: {
-                    unique: '='
-                },
+                scope: {},
                 link: function (scope, element, attrs, formCtrl) {
-                    var inputName = scope.unique[0].name;
-                    var field = element[0].querySelector('[name='+inputName+']');
-                    var ngField = angular.element(field);
-                    scope.$on('form-submit', function(){
-                        //if(recipeService.isRepeated(field.value)){
-                            formCtrl[inputName].$setValidity('repeated', !recipeService.isRepeated(field.value));
-                            formCtrl[inputName].$setDirty(true);
-                        //}
+                    var ngField = angular.element(element);
+                    var inputName = ngField.attr('name');
+
+                    scope.$on('show-error-event', function(){
+                        formCtrl[inputName].$setValidity('repeated', !recipeService.isRepeated(formCtrl[inputName].$modelValue));
+                        formCtrl[inputName].$setDirty(true);
                     });
                 }
             }
