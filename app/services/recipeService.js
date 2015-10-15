@@ -55,7 +55,7 @@
                 localStorageService.set('recipes', JSON.stringify(posts.recipes));
             }
 
-            function isRepeated(title) {
+            function isRepeated(value, field) {
 
                 var recipes = getStoredRecipes();
 
@@ -63,7 +63,7 @@
                     return false;
                 }
                 var recipe = recipes.filter(function(obj){
-                   return obj.title == title;
+                   return obj[field] == value;
                 });
 
                 return recipe.length > 0;

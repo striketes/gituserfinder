@@ -29,7 +29,7 @@
                     var inputName = ngField.attr('name');
 
                     scope.$on('show-error-event', function(){
-                        formCtrl[inputName].$setValidity('repeated', !recipeService.isRepeated(formCtrl[inputName].$modelValue));
+                        formCtrl[inputName].$setValidity('repeated', !recipeService.isRepeated(formCtrl[inputName].$modelValue, inputName));
                         formCtrl[inputName].$setDirty(true);
                     });
                 }
