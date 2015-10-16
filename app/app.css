@@ -55,6 +55,13 @@ body {
     color: whitesmoke;
 }
 
+.close-btn {
+    float: right;
+    text-decoration: none;
+    border: 1px gray solid;
+    padding: 3px;
+}
+
 .container {
     margin: 0 auto !important;
     display: block;
@@ -111,6 +118,8 @@ a.navbar-brand {
 .list-group {
     border-radius: 7px;
     border: 1px #959595 solid;
+    display: block;
+    margin-top: 10px;
 }
 
 .list-group > .list-group-item {
@@ -204,3 +213,56 @@ body {
     padding: 10px 0;
     background: #555555;
  }
+
+.recipe-list {
+    margin-top: 10px;
+}
+
+.sort-list-btn {
+    display: block;
+    float: right;
+}
+
+.sort-list-btn a{
+    margin-left: 10px;
+}
+
+.sort-list-btn a img:hover{
+    margin-left: 10px;
+    opacity: 1;
+}
+
+.sort-list-btn a img{
+    margin-left: 10px;
+    opacity: 0.5;
+}
+
+.square-group {
+    display: block;
+    clear: both;
+    float: left;
+    width: 100%;
+}
+
+.square-group .list-group-item {
+    float: left;
+    width: 192px;
+    display: block;
+    border-radius: 7px;
+    border: 1px #959595 solid;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    margin: 10px;
+    height: 300px;
+    padding: 10px;
+}
+
+.square-group .list-group-item div:first-child {
+    display: block;
+    height: 275px;
+    overflow-y: auto;
+}
+
+.square-group .list-group-item button {
+    float: right;
+}

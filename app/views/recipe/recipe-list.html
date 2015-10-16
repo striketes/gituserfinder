@@ -1,18 +1,33 @@
 <button class="btn btn-primary" ng-click="getAll()">Recipes</button>
 <button class="btn btn-primary" ng-click="clearAll()">Clear All</button>
-<div ui-view></div>
+<button class="btn btn-primary" ng-show="!createEditMode.value" ng-click="showHideForm()">Add new</button>
+<div class="sort-list-btn" ng-show="posts.recipes.length > 0">
+    <a href="" ng-click="changeDisplayModeToList()"><img
+            ng-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAo0lEQVRYR+2WsQ3CQBAExyKHOoAcCaiJhA4xMhXQBQSQImPQWogSPB/8SR/f3Gr37hvkaoADsJc4ugD0wEwCeAXgIzVP23cFsBXoA3AGtoIP4r02AGpVgCIU6ICdZIRTETGsq1hXYACsNIzn+AhshBRE+Ys1+X/eChAF1sBS8EBaXgPwABYSwM1exfVTWoYCT2AumfAeE65+b2qGrOIxhmrpAF8AUCtcGI/gaAAAAABJRU5ErkJggg=="></a>
+    <a href="" ng-click="changeDisplayModeToSquare()"><img
+            ng-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA4ElEQVRYR+2XbQrCQAxEX+/g56lE7yBeSXsL0UPZeghligUNm4VAoQvu/mt524QwmaQNsAfOwIrf0wEn4Gree/wTOCb4A3ABFuY7A98ACmSDj+wD2CYS8/geWCcC2eAj0iuBl7lgH8V8n0n5mkARFZDQrHByIszxEvTGaEbCXDo661SB3acN7UUFUlvdzWWPV3DxtwTfOm0+tOGspyZQRAXqLJjU24HQ7CjCCWsFsl4d9fYoP84C16uj3h7lizCiOoxmr0B2b4/u+VFeItQPgru3R/f8KF+tuFZAFfjvWfAGEfJ5XEU7YBQAAAAASUVORK5CYII="/></a>
+</div>
+
+{{elementDisplayListStyle.value}}
+<div ng-show="createEditMode.value">
+    <div ui-view></div>
+</div>
 
 <article>
     <div id="top-page-recipes"></div>
-    <div class="list-group">
+    <div ng-show="posts.recipes.length > 0"
+         ng-class="{'list-group': elementDisplayListStyle, 'square-group': !elementDisplayListStyle}">
         <div class="list-group-item" ng-repeat="recipe in posts.recipes track by $index">
-            <h4 class="list-group-item-heading">{{recipe.title}}</h4>
+            <div>
+                <h4 class="list-group-item-heading">{{recipe.title}}</h4>
 
-            <p class="list-group-item-text">{{recipe.body}}</p>
+                <p class="list-group-item-text">{{recipe.body}}</p>
 
-            <p class="list-group-item-text">{{recipe.id}}</p>
-
-            <button ng-click="delete(recipe)" class="btn">Delete</button>
+                <p class="list-group-item-text">{{recipe.id}}</p>
+            </div>
+            <div>
+                <button ng-click="delete(recipe)" class="btn">Delete</button>
+            </div>
         </div>
     </div>
 </article>

@@ -3,6 +3,22 @@
         .controller('recipeController', ['recipeService', '$scope', 'localStorageService', function (recipeService, $scope, localStorageService) {
             $scope.posts = recipeService.getPosts();
             $scope.recipe = {};
+            $scope.createEditMode = recipeService.isEdit();
+            $scope.elementDisplayListStyle = true;
+
+
+            $scope.changeDisplayModeToList = function() {
+                $scope.elementDisplayListStyle = true;
+            };
+
+            $scope.changeDisplayModeToSquare = function() {
+                $scope.elementDisplayListStyle = false;
+            };
+
+            $scope.showHideForm = function(){
+                recipeService.showHideForm();
+                $scope.createEditMode = recipeService.isEdit();
+            };
 
             $scope.getAll = function () {
 

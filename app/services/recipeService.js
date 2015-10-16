@@ -6,24 +6,37 @@
                 recipes: []
             };
 
+            var createEditMode = {
+                value: false
+            };
+
+            function showHideForm() {
+                createEditMode.value = !createEditMode.value;
+                return createEditMode;
+            }
+
+            function isEdit() {
+                return createEditMode;
+            }
+
             function getPosts() {
                 return posts;
             }
 
             function getAll() {
 
-                var defered = $q.defer();
+                var deferred = $q.defer();
 
                 $http.get('http://jsonplaceholder.typicode.com/posts/', {cache: true})
                     .then(function (response) {
                         posts.recipes = response.data;
                         localStorageService.set('recipes', JSON.stringify(posts.recipes));
-                        defered.resolve(posts.recipes);
+                        deferred.resolve(posts.recipes);
                     }).catch(function (response) {
                         console.log(response);
-                        defered.reject(response);
+                        deferred.reject(response);
                     });
-                return defered.promise;
+                return deferred.promise;
             }
 
             function save(recipe) {
@@ -79,7 +92,9 @@
                 save: save,
                 getPosts: getPosts,
                 deleteRecipe: deleteRecipe,
-                isRepeated: isRepeated
+                isRepeated: isRepeated,
+                showHideForm: showHideForm,
+                isEdit: isEdit
             };
         }]);
 })();
